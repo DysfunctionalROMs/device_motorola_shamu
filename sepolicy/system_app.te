@@ -5,7 +5,9 @@ allow system_app time:unix_stream_socket connectto;
 
 allow system_app atfwd_service:service_manager add;
 
+#CNE
 allow system_app cne_service:service_manager add;
+unix_socket_connect(system_app, cnd, cnd);
 
 allow system_app tap2wake_dev:file rw_file_perms;
 allow system_app sysfs_vibrator:file rw_file_perms;
