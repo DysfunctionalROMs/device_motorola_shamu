@@ -1,0 +1,14 @@
+[
+  {
+	"remote": "github",
+	"repository": "gchild320/kernel_shamu",
+	"target_path": "kernel/motorola/shamu",
+	"branch": "lp5.1"
+  },
+  {
+    "remote": "github",
+    "repository": "AICP/proprietary_vendor_motorola",
+    "target_path": "vendor/motorola",
+    "branch": "lp5.1"
+  }
+]
