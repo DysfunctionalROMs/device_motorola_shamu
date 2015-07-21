@@ -1,6 +1,6 @@
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1440
-TARGET_SCREEN_WIDTH := 2560
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1440
 
 ## Specify phone tech before including full_phone
 $(call inherit-product, vendor/broken/config/gsm.mk)
