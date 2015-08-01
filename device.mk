@@ -197,6 +197,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
+# Stock Browser
+PRODUCT_PACKAGES += \
+    Browser
+
 PRODUCT_PACKAGES += \
     bdAddrLoader
 
