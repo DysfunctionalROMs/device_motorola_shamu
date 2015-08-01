@@ -96,6 +96,15 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+# hardware info
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.device.chipset=Qualcomm Snapdragon 805 APQ8084 \
+ro.device.cpu=Quad-core 2.7 GHz Krait 450 \
+ro.device.gpu=Qualcomm Adreno 420 \
+ro.device.rear_cam=13 MP \
+ro.device.front_cam=2 MP \
+ro.device.screen_res=1440x2560
+
 # This device is 560dpi.  However the platform doesn't
 # currently contain all of the bitmaps at 560dpi density so
 # we do this little trick to fall back to the xxhdpi version
@@ -242,6 +251,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Rich Communications Service is disabled in 5.1
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.rcs.supported=0
     persist.data.iwlan.enable=true \
     persist.radio.ignore_ims_wlan=1 \
     persist.radio.data_con_rprt=1
@@ -276,6 +286,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Allow tethering without provisioning app
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
+
+# Speed up art
+PRODUCT_PROPERTY_OVERRIDES += \
+dalvik.vm.image-dex2oat-filter=everything \
+dalvik.vm.dex2oat-filter=everything
 
 # Camera configuration
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
