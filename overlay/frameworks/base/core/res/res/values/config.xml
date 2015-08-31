@@ -395,6 +395,9 @@
          We set this to blue as low is red and charged is green -->
     <integer name="config_notificationsBatteryMediumARGB">0xFF0000FF</integer>
 
+    <!-- Is the notification LED brightness adjustable ? Used to decide if the user can set LED brightness -->
+    <bool name="config_adjustableNotificationLedBrightness">true</bool>
+
     <!-- Hide Project Fi app unless it is being used -->
     <string-array name="config_disabledUntilUsedPreinstalledCarrierApps">
         <item>com.google.android.apps.tycho</item>
