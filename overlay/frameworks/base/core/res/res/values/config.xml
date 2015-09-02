@@ -361,4 +361,8 @@
         <item>INTERMEDIATE_POS=0</item>
         <item>SUPL_ES=0</item>
     </string-array>
+
+    <!--  Add VOIP -->
+    <bool name="config_sip_wifi_only">false</bool>
+    <bool name="config_built_in_sip_phone">true</bool>
 </resources>
