@@ -202,6 +202,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     e2fsck
 
+# Needed for VOIP+SIP
+PRODUCT_PACKAGES += \
+    InCallUI \
+    rild
+
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
