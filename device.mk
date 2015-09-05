@@ -272,7 +272,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.force_eri_from_xml=true \
     ro.telephony.default_network=3 \
-    ro.telephony.default_network=10 \
     telephony.lteOnCdmaDevice=1
 
 # SIM based FSG loading & MCFG activation
