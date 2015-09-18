@@ -202,11 +202,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     e2fsck
 
-# Needed for VOIP+SIP
-PRODUCT_PACKAGES += \
-    InCallUI \
-    rild
-
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -276,7 +271,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # LTE, CDMA, GSM/WCDMA
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.force_eri_from_xml=true \
-    ro.telephony.default_network=3 \
+    ro.telephony.default_network=10 \
+    ro.telephony.get_imsi_from_sim=true \
     telephony.lteOnCdmaDevice=1
 
 # SIM based FSG loading & MCFG activation
