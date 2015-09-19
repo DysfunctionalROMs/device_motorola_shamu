@@ -6,6 +6,12 @@
 	"branch": "lp5.1"
   },
   {
+	"remote": "github",
+	"repository": "LightningZap/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.02",
+	"target_path": "prebuilts/gcc/linux-x86/arm/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.02",
+	"branch": "master"
+  },
+  {
     "remote": "github",
     "repository": "AICP/proprietary_vendor_motorola",
     "target_path": "vendor/motorola",

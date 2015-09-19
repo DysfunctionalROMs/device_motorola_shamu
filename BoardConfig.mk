@@ -14,8 +14,10 @@
 # limitations under the License.
 #
 
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_MCPU := cortex-a15
+TARGET_CPU_MFPU := neon-vfpv4
+TARGET_CPU_MFLOAT_ABI := hard
+TARGET_CPU_ABI := armeabi
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
@@ -26,8 +28,8 @@ TARGET_NO_BOOTLOADER := true
 TARGET_KERNEL_CONFIG := shamu-lz_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/shamu-lz
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/sabermod-arm-linux-gnueabi-6.0/bin
-KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.02/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-cortex_a15-linux-gnueabihf-
 
 # Keepin it block based for the sake of SuperSu
 BLOCK_BASED_OTA=true
