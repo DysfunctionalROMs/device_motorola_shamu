@@ -14,13 +14,14 @@
 # limitations under the License.
 #
 
-TARGET_CPU_MCPU := cortex-a15
-TARGET_CPU_MFPU := neon-vfpv4
-TARGET_CPU_MFLOAT_ABI := hard
-TARGET_CPU_ABI := armeabi
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabibi
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
+
+# Kernel flags
+arch_variant_cflags := -mcpu=cortex-a15 -mfpu=neon-vfpv4 -mvectorize-with-neon-quad -mfloat-abi=hard
 
 TARGET_NO_BOOTLOADER := true
 
