@@ -83,7 +83,11 @@ WIFI_BUS := PCIE
 
 #Bluetooth defines
 BOARD_HAVE_BLUETOOTH_BCM := true
+ifeq ($(TARGET_PRODUCT),bt_shamu)
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/moto/shamu/bluetooth_extra
+else
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/moto/shamu/bluetooth
+endif
 
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := msm8084
@@ -93,8 +97,8 @@ TARGET_NO_RPC := true
 TARGET_BOARD_INFO_FILE := device/moto/shamu/board-info.txt
 
 USE_OPENGL_RENDERER := true
-VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
-SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
+VSYNC_EVENT_PHASE_OFFSET_NS := 2500000
+SF_VSYNC_EVENT_PHASE_OFFSET_NS := 0000000
 TARGET_USES_ION := true
 TARGET_HW_DISK_ENCRYPTION := false
 TARGET_CRYPTFS_HW_PATH := device/moto/shamu/cryptfs_hw
@@ -133,52 +137,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/moto/shamu
 # Support Native Layer RF cutback
 BOARD_USES_CUTBACK_IN_RILD := true
 
-BOARD_SEPOLICY_DIRS += \
-       device/moto/shamu/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-        adspd.te \
-        atfwd.te \
-        bluetooth.te \
-        bluetooth_loader.te \
-        bootanim.te \
-        bridge.te \
-        camera.te \
-        cnd.te \
-        device.te \
-        domain.te \
-        file.te \
-        gsiffd.te \
-        ims.te \
-        irsc_util.te \
-        mdm_helper.te \
-        mediaserver.te \
-        mpdecision.te \
-        netd.te \
-        netmgrd.te \
-        platform_app.te \
-        property.te \
-        property_contexts \
-        qmux.te \
-        radio.te \
-        rild.te \
-        sensors.te \
-        service.te \
-        ss_ramdump.te \
-        surfaceflinger.te \
-        system_app.te \
-        system_server.te \
-        tcmd.te \
-        tee.te \
-        te_macros \
-        thermald.te \
-        time.te \
-        ueventd.te \
-        untrusted_app.te \
-        zygote.te \
-        file_contexts \
-        genfs_contexts \
-        service_contexts
+BOARD_SEPOLICY_DIRS += device/moto/shamu/sepolicy
 
 HAVE_ADRENO_SOURCE:= false
 
@@ -186,6 +145,7 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 BOARD_HAS_AUDIO_DSP := true
 
