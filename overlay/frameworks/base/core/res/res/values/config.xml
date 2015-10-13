@@ -32,9 +32,9 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
 
-    <!-- Performance profiles -->
+    <!-- Performance profiles
     <string name="config_perf_profile_prop">powerhal</string>
-    <string name="config_perf_profile_default_entry">1</string>
+    <string name="config_perf_profile_default_entry">1</string> -->
 
     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">false</bool>
@@ -243,9 +243,9 @@
     
     <!-- Enable the option to check proximity sensor when deciding whether to
          turn the screen on
-         NOTE ! - Enable for devices that have a fast response proximity sensor -->
+         NOTE ! - Enable for devices that have a fast response proximity sensor
     <bool name="config_proximityCheckOnWake">true</bool>
-    <integer name="config_proximityCheckTimeout">100</integer>
+    <integer name="config_proximityCheckTimeout">100</integer> -->
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
