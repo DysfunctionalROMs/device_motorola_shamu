@@ -307,26 +307,25 @@ vendor/lib/libloc_api_v02.so
 vendor/lib/libloc_ds_api.so
 
 # IMS/HD Voice
--app/RCSBootstraputil/RCSBootstraputil.apk
--app/RcsImsBootstraputil/RcsImsBootstraputil.apk
--app/RcsService/RcsService.apk
 -app/atfwd/atfwd.apk
 -app/ims/ims.apk
+lib/libimscamera_jni.so:app/ims/lib/arm/libimscamera_jni.so
+lib/libimsmedia_jni.so:app/ims/lib/arm/libimsmedia_jni.so
 bin/ATFWD-daemon
 bin/imsdatadaemon
 bin/imsqmidaemon
-etc/permissions/com.motorola.ims.rcsmanager.xml
 etc/permissions/com.verizon.hardware.telephony.ehrpd.xml
 etc/permissions/com.verizon.hardware.telephony.lte.xml
 etc/permissions/com.verizon.ims.xml
 etc/permissions/rcsimssettings.xml
 etc/permissions/rcsservice.xml
--framework/com.motorola.ims.rcsmanager.jar
 -framework/com.verizon.hardware.telephony.ehrpd.jar
 -framework/com.verizon.hardware.telephony.lte.jar
 -framework/com.verizon.ims.jar
 -framework/rcsimssettings.jar
 -framework/rcsservice.jar
+lib/libimscamera_jni.so
+lib/libimsmedia_jni.so
 vendor/lib/lib-dplmedia.so
 vendor/lib/lib-ims-setting-jni.so
 vendor/lib/lib-ims-settings.so
@@ -384,8 +383,6 @@ bin/qmi_motext_hook
 bin/qmuxd
 bin/radish
 bin/tcmd_mini
-etc/permissions/org.simalliance.openmobileapi.xml
--framework/org.simalliance.openmobileapi.jar
 lib/libdetectmodem.so
 lib/libmdmdetect.so
 lib/librmnetctl.so
@@ -394,6 +391,7 @@ vendor/lib/libmdmcutback.so
 vendor/lib/libnetmgr.so
 vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qcril-hook-oem.so
+vendor/lib/libsysutils_local.so
 vendor/lib/libxml.so
 
 # Sensors
@@ -410,8 +408,9 @@ vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
 # Time services
+-app/TimeService/TimeService.apk
 bin/time_daemon
-vendor/lib/libtime_genoff.so
+-vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
 # Touch firmware
@@ -428,7 +427,6 @@ bin/usbhub_init
 etc/permissions/com.motorola.DirectedSMSProxy.xml
 etc/permissions/com.vzw.vzwapnlib.xml
 -priv-app/AppDirectedSMSProxy/AppDirectedSMSProxy.apk
--priv-app/appdirectedsmspermission/appdirectedsmspermission.apk
 -priv-app/MotoSignatureApp/MotoSignatureApp.apk
 -priv-app/VZWAPNService/VZWAPNService.apk
 
