@@ -120,6 +120,10 @@ PRODUCT_PACKAGES := \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf
+    
+# http://b/15193147
+# TODO(danalbert): Remove this once stlport is dead and gone.
+PRODUCT_PACKAGES +=  libstlport
 
 PRODUCT_PACKAGES += atmel.fw.apq8084
 
