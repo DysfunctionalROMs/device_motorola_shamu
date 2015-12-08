@@ -26,5 +26,5 @@ TARGET_CONTINUOUS_SPLASH_ENABLED := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=shamu \
-    BUILD_FINGERPRINT=google/shamu/shamu:6.0/MRA58K/2256973:user/release-keys \
-    PRIVATE_BUILD_DESC="shamu-user 6.0 MRA58K 2256973 release-keys"
+    BUILD_FINGERPRINT=google/shamu/shamu:6.0.1/MMB29K/2419427:user/release-keys \
+    PRIVATE_BUILD_DESC="shamu-user 6.0.1 MMB29K 2419427 release-keys"
