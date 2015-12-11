@@ -20,9 +20,6 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
 
-# Kernel flags
-arch_variant_cflags := -mcpu=cortex-a15 -mfpu=neon-vfpv4 -mvectorize-with-neon-quad -mfloat-abi=hard
-
 TARGET_NO_BOOTLOADER := true
 
 # Inline kernel building
