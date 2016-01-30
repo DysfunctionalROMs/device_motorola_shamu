@@ -1,4 +1,0 @@
-    <!-- kill app long press back -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <integer name="config_backKillTimeout">500</integer>
- </resources>
