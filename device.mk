@@ -242,15 +242,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.no_wait_for_card=1 \
+    persist.radio.sib16_support=1 \
     persist.data.qmi.adb_logmask=0 \
     persist.radio.alt_mbn_name=tmo_alt.mbn
 
 # never dexopt the MotoSignature
 $(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
-
-# Include IMSEnabler
-PRODUCT_PACKAGES += \
-    IMSEnabler
 
 # never dexopt the MotoSignature
 $(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
@@ -264,7 +261,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Rich Communications Service is disabled in 5.1
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rcs.supported=0
-    persist.radio.sib16_support=1
 
 #Reduce IMS logging
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -295,9 +291,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # LTE, CDMA, GSM/WCDMA
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ril.force_eri_from_xml=true \
     ro.telephony.default_network=10 \
-    ro.telephony.get_imsi_from_sim=true \
     telephony.lteOnCdmaDevice=1
 
 # SIM based FSG loading & MCFG activation
@@ -308,6 +302,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Allow tethering without provisioning app
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
+
+# Store correct IMSI when retreived from SIMRecords and use it for RuimRecords
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.get_imsi_from_sim=true
 
 # Speed up art
 PRODUCT_PROPERTY_OVERRIDES += \
