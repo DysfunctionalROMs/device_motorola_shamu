@@ -26,8 +26,8 @@ TARGET_CONTINUOUS_SPLASH_ENABLED := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=shamu \
-    BUILD_FINGERPRINT=google/shamu/shamu:6.0.1/MMB29V/2554798:user/release-keys \
-    PRIVATE_BUILD_DESC="shamu-user 6.0.1 MMB29V 2554798 release-keys"
+    BUILD_FINGERPRINT=google/shamu/shamu:6.0.1/MOB30D/2704746:user/release-keys \
+    PRIVATE_BUILD_DESC="shamu-user 6.0.1 MOB30D 2704746 release-keys"
 
 # Broken Device Maintainers
 PRODUCT_BUILD_PROP_OVERRIDES += \
