@@ -1,0 +1,20 @@
+[
+  {
+	"remote": "github",
+	"repository": "LightningZap/kernel_shamu-lz",
+	"target_path": "kernel/motorola/shamu-lz",
+	"branch": "n-preview-2"
+  },
+  {
+	"remote": "github",
+	"repository": "LightningZap/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.02",
+	"target_path": "prebuilts/gcc/linux-x86/arm/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.02",
+	"branch": "master"
+  },
+  {
+    "remote": "github",
+    "repository": "AICP/proprietary_vendor_motorola",
+    "target_path": "vendor/motorola",
+    "branch": "mm6.0"
+  }
+]
