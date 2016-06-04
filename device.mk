@@ -186,9 +186,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# for launcher layout
+# Stock Browser
 PRODUCT_PACKAGES += \
-    ShamuLayout
+    Browser
 
 PRODUCT_PACKAGES += \
     bdAddrLoader
@@ -223,7 +223,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.ISP.debug.mask=0 \
     persist.camera.pproc.debug.mask=7 \
     persist.camera.stats.debug.mask=0 \
-    persit.camera.imglib.logs=1 \
+    persist.camera.imglib.logs=1 \
     persist.camera.mct.debug.mask=1 \
     persist.camera.sensor.debug=0 \
     vidc.debug.level=1
