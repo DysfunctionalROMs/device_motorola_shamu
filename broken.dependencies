@@ -7,7 +7,7 @@
   },
   {
 	"remote": "github",
-	"repository": "LightningZap/arm-cortex_a15-linux-gnueabihf-linaro",
+	"repository": "LightningZap/arm-cortex_a15-linux-gnueabihf-linaro_4.9",
 	"target_path": "prebuilts/gcc/linux-x86/arm/arm-cortex_a15-linux-gnueabihf-linaro_4.9",
 	"branch": "master"
   },
