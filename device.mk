@@ -245,9 +245,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # never dexopt the MotoSignature
 $(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
 
-# never dexopt the MotoSignature
-$(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
-
 # WiFi calling
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true \
