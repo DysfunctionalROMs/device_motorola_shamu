@@ -7,7 +7,6 @@ system/bin/irsc_util:qcom
 system/bin/ks:qcom
 system/bin/mdm_helper:qcom
 system/bin/mm-qcamera-daemon:qcom
-system/bin/mpdecision:qcom
 system/bin/netmgrd:qcom
 system/bin/PktRspTest:qcom
 system/bin/port-bridge:qcom

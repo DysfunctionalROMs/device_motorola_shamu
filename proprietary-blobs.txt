@@ -23,7 +23,6 @@
 /system/bin/ks
 /system/bin/mdm_helper
 /system/bin/mm-qcamera-daemon
-/system/bin/mpdecision
 /system/bin/netmgrd
 /system/bin/PktRspTest
 /system/bin/port-bridge
