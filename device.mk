@@ -100,10 +100,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/moto/shamu/spn-conf.xml:system/etc/spn-conf.xml
 
-# This device is 560dpi.  However the platform doesn't
-# currently contain all of the bitmaps at 560dpi density so
-# we do this little trick to fall back to the xxhdpi version
-# if the 560dpi doesn't exist.
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
 # A list of dpis to select prebuilt apk, in precedence order.
@@ -117,7 +113,6 @@ DEVICE_PACKAGE_OVERLAYS := \
 PRODUCT_PACKAGES := \
     libwpa_client \
     hostapd \
-    dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf
 
@@ -224,7 +219,7 @@ PRODUCT_PACKAGES += \
     libxml2
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196609
+    ro.opengles.version=196610
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=560
@@ -254,6 +249,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Rich Communications Service is disabled in 5.1
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rcs.supported=0
+    persist.radio.data_no_toggle=1
 
 #Reduce IMS logging
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -345,6 +341,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:system/etc/permissions/android.hardware.nfc.hcef.xml \
     device/moto/shamu/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/moto/shamu/nfc/libnfc-brcm-20795a10.conf:system/etc/libnfc-brcm-20795a10.conf
 
@@ -375,6 +372,37 @@ AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 $(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.hwui.texture_cache_size=72 \
+   ro.hwui.layer_cache_size=48 \
+   ro.hwui.r_buffer_cache_size=8 \
+   ro.hwui.path_cache_size=32 \
+   ro.hwui.gradient_cache_size=1 \
+   ro.hwui.drop_shadow_cache_size=6 \
+   ro.hwui.texture_cache_flushrate=0.4 \
+   ro.hwui.text_small_cache_width=1024 \
+   ro.hwui.text_small_cache_height=1024 \
+   ro.hwui.text_large_cache_width=2048 \
+   ro.hwui.text_large_cache_height=1024
+
+
+PRODUCT_PROPERTY_OVERRIDES += \
+   dalvik.vm.heapgrowthlimit=256m
+
+# In userdebug, add minidebug info the the boot image and the system server to support
+# diagnosing native crashes.
+ifneq (,$(filter userdebug, $(TARGET_BUILD_VARIANT)))
+    # Boot image.
+    PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
+    # System server and some of its services.
+    # Note: we cannot use PRODUCT_SYSTEM_SERVER_JARS, as it has not been expanded at this point.
+    $(call add-product-dex-preopt-module-config,services,--generate-mini-debug-info)
+    $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
+endif
+
+# setup dalvik vm configs.
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
 $(call inherit-product-if-exists, hardware/qcom/msm8x84/msm8x84.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8x84/msm8x84-gpu-vendor.mk)
 
@@ -383,7 +411,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.qualcomm.perf.cores_online=2
 
 PRODUCT_PACKAGES += \
-    power.shamu
+    power.shamu \
+    thermal.shamu
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
@@ -413,3 +442,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Low latency audio buffer size in frames
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
+
+# OEM Unlock reporting
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.oem_unlock_supported=1
