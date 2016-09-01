@@ -2,8 +2,6 @@
 type firmware_file, fs_type, contextmount_type;
 type fsg_file, fs_type, contextmount_type;
 
-type cnd_socket, file_type;
-
 type adspd_socket, file_type, mlstrustedobject;
 type camera_socket, file_type;
 type mpdecision_socket, file_type;
@@ -42,3 +40,10 @@ type sysfs_cpu_online, fs_type, sysfs_type;
 type sysfs_cpuboost, fs_type, sysfs_type;
 type sysfs_capsense_update, fs_type, sysfs_type;
 type sysfs_sar_wifi, fs_type, sysfs_type;
+
+type sysfs_vibrator, fs_type, sysfs_type;
+type sysfs_display, fs_type, sysfs_type;
+
+# Define cnd socket and data file type
+type cnd_socket, file_type;
+type cnd_data_file, file_type;

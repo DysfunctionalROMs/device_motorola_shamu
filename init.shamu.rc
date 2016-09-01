@@ -89,6 +89,33 @@ on post-fs-data
     # rild files
     mkdir /data/misc/audio_cutback 0770 radio audio
 
+    # Hardware tunables
+    chown root system /sys/bus/i2c/devices/1-004a/tsp
+    chmod 0664 /sys/bus/i2c/devices/1-004a/tsp
+    restorecon /sys/bus/i2c/devices/1-004a/tsp
+    chown root system /sys/devices/platform/kcal_ctrl.0/kcal
+    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal
+    restorecon /sys/devices/platform/kcal_ctrl.0/kcal
+
+    # Wake Gestures
+    chown system system /sys/android_touch/doubletap2wake
+    chmod 0644 /sys/android_touch/doubletap2wake
+    restorecon /sys/android_touch/doubletap2wake
+    chown system system /sys/android_touch/sweep2wake
+    chmod 0644 /sys/android_touch/sweep2wake
+    restorecon /sys/android_touch/sweep2wake
+    chown system system /sys/android_touch/sweep2sleep
+    chmod 0644 /sys/android_touch/sweep2sleep
+    restorecon /sys/android_touch/sweep2sleep
+    chown system system /sys/android_touch/wake_gestures
+    chmod 0644 /sys/android_touch/wake_gestures
+    restorecon /sys/android_touch/wake_gestures
+
+    # Vibrator
+    chown system system /sys/vibrator/pwmvalue
+    chmod 0644 /sys/vibrator/pwmvalue
+    restorecon /sys/vibrator/pwmvalue
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -140,7 +167,7 @@ on boot
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
     write /dev/cpuset/background/cpus 0
-    write /dev/cpuset/system-background/cpus 0-1
+    write /dev/cpuset/background/cpus 0-1
 
     chmod 0660 /dev/ttyHS2
     chown bluetooth net_bt_stack /dev/ttyHS2
@@ -154,9 +181,6 @@ on boot
     chmod 2770 /dev/socket/qmux_bluetooth
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
-
-    mkdir /dev/socket/mpdecision 2775 root system
-    chmod 2775 /dev/socket/mpdecision
 
     setprop wifi.interface wlan0
 
@@ -238,6 +262,29 @@ on boot
     chown media media /sys/devices/c55_ctrl/gpio_c55_int/value
     chown media media /sys/devices/c55_ctrl/gpio_core/value
     chown media media /sys/devices/c55_ctrl/gpio_reset/value
+
+    # LED permissions
+    chmod 664 /sys/class/leds/red/brightness
+    chmod 664 /sys/class/leds/green/brightness
+    chmod 664 /sys/class/leds/blue/brightness
+
+    # Sunlight Enhancement mode
+    chown system system /sys/devices/virtual/graphics/fb0/hbm
+    chmod 0660 /sys/devices/virtual/graphics/fb0/hbm
+
+    # Vibrator permissions
+    chown system system /sys/vibrator/pwmvalue
+    chmod 0644 /sys/vibrator/pwmvalue
+
+    # Display color calibration
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_enable
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_cont
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_hue
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_invert
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_min
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_sat
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_val
 
 # subsystem ramdump collection
 on property:persist.sys.qc.sub.rdump.on=*
@@ -391,8 +438,8 @@ on property:sys.ims.QMI_DAEMON_STATUS=1
 service sensors /system/bin/sensors.qcom
     class core
     user root
-    group root wakelock
-    writepid /dev/cpuset/system-background/tasks
+    group root
+    writepid /dev/cpuset/background/tasks
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -497,11 +544,13 @@ service adspd /system/bin/adspd /dev/ttyHS3
    user media
    group media input
 
+#external storage
+service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023  /mnt/media_rw/usbdisk /storage/usbdisk
+    class late_start
+    disabled
+
 on property:sys.boot_completed=1
     start qcom-post-boot
-
-on property:ro.debuggable=1
-    start ss_ramdump
 
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
@@ -528,12 +577,6 @@ service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
-
-service mpdecision /system/bin/mpdecision --avg_comp
-   class main
-   user root
-   group root readproc
-   writepid /dev/cpuset/system-background/tasks
 
 service ss_ramdump /system/bin/subsystem_ramdump
     class main

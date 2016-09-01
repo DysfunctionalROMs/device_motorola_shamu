@@ -22,7 +22,6 @@ PRODUCT_COPY_FILES := \
     vendor/qcom/shamu/proprietary/ks:system/bin/ks:qcom \
     vendor/qcom/shamu/proprietary/mdm_helper:system/bin/mdm_helper:qcom \
     vendor/qcom/shamu/proprietary/mm-qcamera-daemon:system/bin/mm-qcamera-daemon:qcom \
-    vendor/qcom/shamu/proprietary/mpdecision:system/bin/mpdecision:qcom \
     vendor/qcom/shamu/proprietary/netmgrd:system/bin/netmgrd:qcom \
     vendor/qcom/shamu/proprietary/PktRspTest:system/bin/PktRspTest:qcom \
     vendor/qcom/shamu/proprietary/port-bridge:system/bin/port-bridge:qcom \
