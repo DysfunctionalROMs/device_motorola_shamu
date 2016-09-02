@@ -3,7 +3,7 @@
 	"remote": "github",
 	"repository": "LightningZap/kernel_shamu-lz",
 	"target_path": "kernel/motorola/shamu-lz",
-	"branch": "n-preview-2"
+	"branch": "n7.0"
   },
   {
 	"remote": "github",
