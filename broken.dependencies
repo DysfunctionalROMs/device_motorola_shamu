@@ -16,5 +16,11 @@
     "repository": "AICP/proprietary_vendor_motorola",
     "target_path": "vendor/motorola",
     "branch": "n7.0"
+},
+  {
+    "remote": "github",
+    "repository": "BrokenROM/packages_apps_SnapdragonCamera",
+    "target_path": "packages/apps/SnapdragonCamera",
+    "branch": "m6.0.1"
 }
 ]
