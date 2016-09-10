@@ -229,9 +229,9 @@
     
     <!-- Enable the option to check proximity sensor when deciding whether to
          turn the screen on
-         NOTE ! - Enable for devices that have a fast response proximity sensor -->
+         NOTE ! - Enable for devices that have a fast response proximity sensor
     <bool name="config_proximityCheckOnWake">true</bool>
-    <integer name="config_proximityCheckTimeout">100</integer>
+    <integer name="config_proximityCheckTimeout">100</integer> -->
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
@@ -382,22 +382,22 @@
     <!-- Default LED off time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOff">9000</integer>
 
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
+    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option
+    <bool name="config_intrusiveBatteryLed">true</bool> -->
 
     <!-- Does the notification LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorNotificationLed">true</bool>
+         Used to decide if the user can change the colors
+    <bool name="config_multiColorNotificationLed">true</bool> -->
 
-    <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
+    <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors
+    <bool name="config_multiColorBatteryLed">true</bool> -->
 
     <!-- Default value for led color when battery is medium charged
          We set this to blue as low is red and charged is green -->
     <integer name="config_notificationsBatteryMediumARGB">0xFF0000FF</integer>
 
-    <!-- Is the notification LED brightness adjustable ? Used to decide if the user can set LED brightness -->
-    <bool name="config_adjustableNotificationLedBrightness">true</bool>
+    <!-- Is the notification LED brightness adjustable ? Used to decide if the user can set LED brightness
+    <bool name="config_adjustableNotificationLedBrightness">true</bool> -->
 
     <!-- Hide Project Fi app unless it is being used -->
     <string-array name="config_disabledUntilUsedPreinstalledCarrierApps">
