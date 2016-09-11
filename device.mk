@@ -178,8 +178,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     fmas.spkr_sgain=0
 
 # Camera
-PRODUCT_PACKAGES += \
-    SnapdragonCamera
+#PRODUCT_PACKAGES += \
+#    SnapdragonCamera
 
 PRODUCT_PACKAGES += \
     libqomx_core \
