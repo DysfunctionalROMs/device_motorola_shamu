@@ -13,8 +13,8 @@
   },
   {
     "remote": "github",
-    "repository": "AICP/proprietary_vendor_motorola",
-    "target_path": "vendor/motorola",
+    "repository": "TeamFahQ/vendor_motorola_shamu",
+    "target_path": "vendor/motorola/shamu",
     "branch": "n7.0"
 },
   {
