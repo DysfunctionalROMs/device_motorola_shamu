@@ -214,6 +214,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     keystore.msm8084
 
+# MotoDoze
+PRODUCT_PACKAGES += \
+    MotoDoze
+
 PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
