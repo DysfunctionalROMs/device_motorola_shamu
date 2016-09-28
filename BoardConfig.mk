@@ -146,3 +146,6 @@ USE_CLANG_PLATFORM_BUILD := true
 DONT_DEXPREOPT_PREBUILTS := true
 
 -include vendor/motorola/shamu/BoardConfigVendor.mk
+
+# PDFIUM
+TARGET_NEEDS_PDFIUM_BIGINT := true
