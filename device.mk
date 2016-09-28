@@ -454,3 +454,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # Telephony-ext
 PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
+
+# Set bluetooth soc to rome
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.bluetooth.soc=rome
