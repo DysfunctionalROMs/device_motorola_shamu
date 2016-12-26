@@ -14,7 +14,7 @@
   {
     "remote": "github",
     "repository": "TeamFahQ/vendor_motorola",
-    "target_path": "vendor/motorola/shamu",
+    "target_path": "vendor/motorola",
     "branch": "n7.0"
 },
   {
