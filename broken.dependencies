@@ -13,7 +13,7 @@
   },
   {
     "remote": "github",
-    "repository": "TeamFahQ/vendor_motorola_shamu",
+    "repository": "TeamFahQ/vendor_motorola",
     "target_path": "vendor/motorola/shamu",
     "branch": "n7.0"
 },
