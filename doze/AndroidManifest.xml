@@ -7,20 +7,18 @@
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="cyanogenmod.permission.MANAGE_REMOTE_PREFERENCES" />
 
     <uses-sdk
-        android:minSdkVersion="24"
-        android:targetSdkVersion="24"/>
+        android:minSdkVersion="21"
+        android:targetSdkVersion="21"/>
 
     <application
         android:label="MotoDoze"
         android:persistent="true">
 
-        <receiver android:name="com.cyanogenmod.settings.doze.DozeReceiver">
+        <receiver android:name="com.cyanogenmod.settings.doze.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="cyanogenmod.intent.action.UPDATE_PREFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
@@ -31,8 +29,8 @@
 
         <activity
             android:name=".DozeSettings"
-            android:label="@*cyanogenmod.platform:string/screen_gestures_panel_title"
-            android:theme="@style/DozeSettings">
+            android:label="@string/ambient_display_title"
+            android:theme="@android:style/Theme.Material.Settings">
             <intent-filter>
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
@@ -41,7 +39,7 @@
                 android:value="com.android.settings.category.device" />
             <meta-data
                 android:name="com.android.settings.icon"
-                android:resource="@drawable/ic_settings_gestures" />
+                android:resource="@drawable/ic_settings_doze" />
         </activity>
 
     </application>
