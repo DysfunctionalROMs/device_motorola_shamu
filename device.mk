@@ -122,11 +122,6 @@ PRODUCT_PACKAGES += atmel.fw.apq8084
 PRODUCT_PACKAGES += \
     qmi_motext_hook
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
-    librs_jni
-
 PRODUCT_PACKAGES += \
     gralloc.msm8084 \
     hwcomposer.msm8084 \
@@ -229,6 +224,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.no_wait_for_card=1 \
+    persist.radio.data_no_toggle=1 \
     persist.radio.sib16_support=1 \
     persist.data.qmi.adb_logmask=0 \
     persist.radio.alt_mbn_name=tmo_alt.mbn
@@ -245,7 +241,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Rich Communications Service is disabled in 5.1
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rcs.supported=0
-    persist.radio.data_no_toggle=1
 
 #Reduce IMS logging
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -350,8 +345,10 @@ PRODUCT_COPY_FILES += \
 
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter aosp_shamu, $(TARGET_PRODUCT)))
 PRODUCT_PACKAGES += \
-    QXDMLogger
+    QXDMLoggerV2
+endif # aosp_shamu
 
 # Disable modem ramdumps
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -399,8 +396,14 @@ ifneq (,$(filter userdebug, $(TARGET_BUILD_VARIANT)))
     $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
 endif
 
-# setup dalvik vm configs.
+PRODUCT_PROPERTY_OVERRIDES += \
+   dalvik.vm.heapgrowthlimit=256m
+
+# setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# setup HWUI configs
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 $(call inherit-product-if-exists, hardware/qcom/msm8x84/msm8x84.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8x84/msm8x84-gpu-vendor.mk)

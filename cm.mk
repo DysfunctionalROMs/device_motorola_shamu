@@ -23,8 +23,8 @@ PRODUCT_MODEL := Nexus 6
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=shamu \
-    BUILD_FINGERPRINT=google/shamu/shamu:7.0.0/NBD90Z/3264873:user/release-keys \
-    PRIVATE_BUILD_DESC="shamu-user 7.0.0 NBD90Z 3264873 release-keys"
+    BUILD_FINGERPRINT=google/shamu/shamu:7.1.1/N6F26Q/3549652:user/release-keys \
+    PRIVATE_BUILD_DESC="shamu-user 7.1.1 N6F26Q 3549652 release-keys"
 
 # Broken Device Maintainers
 PRODUCT_BUILD_PROP_OVERRIDES += \
