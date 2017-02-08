@@ -8,9 +8,6 @@ TARGET_SCREEN_WIDTH := 1440
 # Inherit some common broken stuff.
 $(call inherit-product, vendor/broken/config/common_full_phone.mk)
 
-# Enhanced NFC
-$(call inherit-product, vendor/broken/config/nfc_enhanced.mk)
-
 # Inherit device configuration
 $(call inherit-product, device/motorola/shamu/aosp_shamu.mk)
 
