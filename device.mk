@@ -303,6 +303,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.camera.ois.disable=0
 
+# ADB
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+persist.service.adb.enable=1 \
+persist.service.debuggable=1 \
+persist.sys.usb.config=mtp,adb
+
 # GPS configuration
 PRODUCT_COPY_FILES += \
     device/motorola/shamu/gps.conf:system/etc/gps.conf
