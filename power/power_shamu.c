@@ -289,9 +289,15 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
         case POWER_HINT_VIDEO_ENCODE:
             process_video_encode_hint(data);
             break;
+        case POWER_HINT_SET_PROFILE:
+            set_power_profile(*(int32_t *)data);
+            break;
         case POWER_HINT_LOW_POWER:
-             process_low_power_hint(data);
-             break;
+            if (*(int32_t *)data == 1)
+                set_power_profile(PROFILE_POWER_SAVE);
+            else
+                set_power_profile(PROFILE_BALANCED);
+            break;
         default:
              break;
     }
