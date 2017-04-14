@@ -19,7 +19,7 @@
 },
   {
     "remote": "github",
-    "repository": "BrokenROM/packages_apps_SnapdragonCamera",
+    "repository": "DysfunctionalROMs/packages_apps_SnapdragonCamera",
     "target_path": "packages/apps/SnapdragonCamera",
     "branch": "m6.0.1"
 }
